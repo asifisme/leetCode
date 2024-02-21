@@ -1,3 +1,6 @@
+def isPalindrome(s):
+    return s == s[::-1]
+
 def isPal(str):
     for i in range(0, len(str)//2): 
         if str[i] != str(len(str) - i - 1):
