@@ -1,7 +1,17 @@
-def Range(nums): 
-    l = len(nums) 
-    for i in range(l-2, -1, -1):
-        print(f'index : {i} and value : {nums[i]}') 
+def Check(s):
+    res = ""
+    if s is None or len(s) == 0:
+        return res 
+    else:
+        for i in range(0, min([len(x) for x in s])):
+            current = s[0][i] 
+            for j in range(0, len(s)):
+                if s[j][i] != current:
+                    return res 
+            res += current 
+    return res 
 
-nums = [1,2,3,4,5,6,7,8,9]
-Range(nums)
+
+
+s = ["flower","flow","flight"]
+print(Check(s))
