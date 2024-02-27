@@ -1,17 +1,14 @@
-def Check(s):
-    res = ""
-    if s is None or len(s) == 0:
-        return res 
-    else:
-        for i in range(0, min([len(x) for x in s])):
-            current = s[0][i] 
-            for j in range(0, len(s)):
-                if s[j][i] != current:
-                    return res 
-            res += current 
+res = []
+def permutation(s, i=0):
+    if i == len(s):
+        x = str(''.join(s))
+        res.append([x])
+    for j in range(i, len(s)):
+        words = [c for c in s] 
+        words[i], words[j] = words[j], words[i] 
+        permutation(words, i+1) 
     return res 
 
+s = 'just' 
+print(permutation(s))
 
-
-s = ["flower","flow","flight"]
-print(Check(s))

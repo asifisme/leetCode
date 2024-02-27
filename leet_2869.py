@@ -11,12 +11,9 @@ class Solution:
             if len(seen) == k:
                 print(seen)
                 return i + 1 
-
 # nums = [3,1,5,4,2]
 # k = 5
-            
 nums = [3,2,5,3,1]
 k = 3
-
 x = Solution(nums, k)
 print(x.Operation())
