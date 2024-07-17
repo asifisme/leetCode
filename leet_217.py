@@ -5,8 +5,6 @@ def Duplicate(nums):
             return True 
         else:
             hashmap[nums[i]] = i 
-    print(hashmap)
-    print(hashmap.keys())
     return False 
 
 

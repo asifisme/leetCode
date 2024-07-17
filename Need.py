@@ -12,3 +12,13 @@ def MinimumLength(nums: list):
 
 def MaximumLength(nums: list):
     return max([len(i) for i in nums])
+
+
+def Recur_facto(n):
+    if n == 1:
+        return n 
+    else:
+        return n * Recur_facto(n - 1)
+
+
+print(Recur_facto(300))
