@@ -50,9 +50,19 @@
 # print(cnt)
 # print(res) 
 
-nums = 14 
-nums_ = 10 
+# nums = 11 
+# nums_ = 7
 
-print(nums & nums_) 
-print(nums and nums_ ) 
-print(nums | nums)
+# print(nums & nums_) 
+# print(nums and nums_ ) 
+# print(nums | nums_)
+# print(nums or nums_)
+
+nums = 4 
+
+result = nums >> 1
+
+print(result)
+print(f'Num : {bin(nums)}\nRes: {bin(result)}')
+
+# /api/v2/swagger.json
