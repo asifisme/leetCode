@@ -1,21 +1,35 @@
 # select sort algorithm 
-class Selection_Sort:
+class Sort_Algorithm:
     def __init__(self, nums : list[int]):
         self.nums = nums 
+    # Bubble Sort Algorithm 
+    def Bubble_Sort(self):
+        count = 0 
+        for i in range(len(self.nums)):
+            for j in range(len(self.nums) - i - 1):
+                count += 1 
+                if self.nums[j + 1]  < self.nums[j]:
+                    self.nums[j], self.nums[j + 1] = self.nums[j + 1], self.nums[j] 
+        return [self.nums , count]
     
-    def Select(self):
-        for i in range(len(self.nums) - 1):
-            min_index = i 
-            for j in range(i + 1, len(self.nums)):
-                if self.nums[j] < self.nums[min_index]:
-                    min_index = j 
-                
-                # swap the value 
-                if i != min_index:
-                    self.nums[i], self.nums[min_index] = self.nums[min_index], self.nums[i]
-        return self.nums 
+    # selection sort Algorithm 
+    def Selection_Sort(self):
+        count = 0 
+        for i in range(len(self.nums) - 1 ):
+            index_min = i
+            for j in range(i + 1, len(self.nums) ):
+                count += 1 
+                if self.nums[j] < self.nums[index_min]:
+                    index_min = j 
+                if index_min != i:
+                    self.nums[j], self.nums[index_min] = self.nums[index_min], self.nums[j] 
+        return [self.nums, count ]
+    
+    
 
+        
  
-nums = [10, 5, 2, 8, 7] 
-s = Selection_Sort(nums) 
-print(s.Select())
+nums = [10, 5, 2, 8, 7,1,3,5,6] 
+s = Sort_Algorithm(nums) 
+print(s.Bubble_Sort())
+print(s.Selection_Sort())

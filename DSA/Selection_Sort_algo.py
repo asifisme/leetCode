@@ -9,11 +9,10 @@ class Selection_Sort:
             for j in range(i + 1, len(self.nums)):
                 if self.nums[j] < self.nums[min_index]:
                     min_index = j 
-                    
+
                 # swap the values 
                 if min_index != i:
                     self.nums[i], self.nums[min_index] = self.nums[min_index], self.nums[i] 
-
 
         return self.nums 
 
