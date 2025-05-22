@@ -10,51 +10,60 @@ class LinkedList:
 
     def insert_node(self, value):
         new_node = Node(value)
+
         if not self.head:
-            self.head = new_node
-            return
-        current = self.head
-        while current.next:
-            current = current.next
-        current.next = new_node
-
-        return 
-
+            self.head = new_node 
+            new_node.next = self.head 
+            return 
+        
+        current = self.head 
+        while current.next != self.head:
+            current = current.next 
+        
+        current.next = new_node 
+        new_node.next = self.head 
+        return self.head 
     
-    def rotate(self, k):
+    def Rotate(self, k):
         if not self.head or k == 0:
-            return
+            return 
+        
+        # current = self.head 
 
-        # Find the length of the linked list
-        length = 1
-        current = self.head
-        while current.next:
-            current = current.next
-            length += 1
+        # count = 1 
 
-        # Make the linked list circular
-        current.next = self.head
+        # while current.next != self.head:
+        #     count += 1 
+        #     current = current.next 
+        
+        # k = k % count 
 
-        # Find the new tail and new head
-        k = k % length
-        steps_to_new_tail = length - k
-        new_tail = self.head
-        for _ in range(steps_to_new_tail - 1):
-            new_tail = new_tail.next
-
-        new_head = new_tail.next
-
-        # Break the circular linked list
-        new_tail.next = None
-
-        # Update the head of the linked list
-        self.head = new_head
+        # if k == 0:
+        #     return 
+        
+        temp = self.head 
+        for _ in range(k):
+            temp = temp.next 
+        self.head = temp 
 
 
     def __str__(self):
         res = []
-        current = self.head
-        while current:
-            res.append(current.value)
-            current = current.next
-        return str(res) 
+        current = self.head 
+        while True:
+            res.append(current.value) 
+            current = current.next 
+            if current == self.head:
+                break 
+        return str(res)
+    
+head = [1,2,3,4,5]
+k = 2
+
+l = LinkedList()
+for i in head:
+    l.insert_node(i) 
+
+l.Rotate(2)
+
+print(l) 

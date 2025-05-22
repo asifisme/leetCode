@@ -80,6 +80,6 @@ l.insert_new_node(3)
 l.insert_new_node(3)
 # l.remove_item(3)
 print(l)
-l.removeAnyDuplicate()
-
+# l.removeAnyDuplicate()
+l.remove_item(2)
 print(l)
