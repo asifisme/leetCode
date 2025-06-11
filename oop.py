@@ -1,47 +1,58 @@
-
-
 class Node:
-    def __init__(self, value):
-        self.data = value 
-        self.next = None 
+    def __init__(self, data):
+        self.data = data 
+        self.left = None 
+        self.right = None 
+
+root = Node('A') 
+
+nodeA = Node('b')
+nodeB = Node('c')
+nodeD = Node('d')
+nodeE = Node('e')
+nodeF = Node('f')
+nodeG = Node('g')
+nodeJ = Node('h')
+nodeI = Node('i')
 
 
+root.left = nodeA 
+root.right = nodeB
 
-class LinkedList:
-    def __init__(self):
-        head = None 
+nodeA.left = nodeD 
+nodeA.right = nodeE 
 
-    
-    def insert_new_node(self, value)-> Node:
-        new_node = Node(value) 
+nodeE.left = nodeF 
 
-        if not self.head:
-            self.head = new_node 
-            return 
-        
-        current = self.head 
+nodeF.right = nodeJ
+nodeF.left = nodeI 
 
-        while current.next:
-            current = current.next 
-        current.next = new_node 
-        return self.head 
-    
-    def addTwoNumber(self, l1: Node, l2: Node)-> Node: 
-        dummy_node = Node(0) 
-        current = dummy_node 
-        carry = 0 
 
-        while carry or l1 or l2: 
-            if l1:
-                carry += l1.data 
-                l1 = l1.next 
-            
-            if l2:
-                carry += l2.data 
-                l2 = l2.next 
+def preoerder_traversal(root):
+    if root:
+        print(root.data, end=' ') 
+        preoerder_traversal(root.left) 
+        preoerder_traversal(root.right) 
 
-            current.next = Node(carry % 10) 
-            carry //= 10 
-            current = current.next 
-        return dummy_node.next 
-    
+
+preoerder_traversal(root) 
+
+print()
+
+def inorder_traversal(root):
+    if root:
+        inorder_traversal(root.left)
+        print(root.data, end=" ")
+        inorder_traversal(root.right) 
+
+inorder_traversal(root) 
+
+print()
+
+def postorder_traversal(root):
+    if root:
+        postorder_traversal(root.left)
+        postorder_traversal(root.right)
+        print(root.data, end=" ") 
+
+postorder_traversal(root)
