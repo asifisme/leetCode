@@ -1,33 +1,44 @@
-# 15.07 
 class Node:
-    def __init__(self, data): 
+    def __init__(self, data):
         self.data = data 
         self.next = None 
-        self.prev = None 
-
-node1   = Node(3)
-node2   = Node(5) 
-node3   = Node(7) 
-node4   = Node(9) 
-
-node1.next = node2 
-node2.next = node3 
-node3.next = node4 
-
-node2.prev = node1
-node3.prev = node2 
-node4.prev = node3
 
 
-current_node = node1 
+class LinkList:
+    def __init__(self):
+        self.head = None 
+    
 
-while current_node:
-    print(current_node.data, end='->') 
-    current_node = current_node.next 
-print('null')
+    def insert_new_node(self, data):
+        new_node = Node(data) 
 
-current_node = node4 
-while current_node:
-    print(current_node.data, end='->') 
-    current_node = current_node.prev 
-print('null')
+        if not self.head:
+            self.head = new_node 
+            return 
+        
+        # go last node 
+        last_node = self.head 
+        while last_node.next:
+            last_node = last_node.next 
+        last_node.next = new_node 
+
+        return self.head 
+    
+    def __str__(self):
+        res = [] 
+        
+        current = self.head 
+
+        while current:
+            res.append(current.data) 
+            current = current.next 
+        
+        return str(res) 
+
+
+
+l = LinkList() 
+l.insert_new_node('A') 
+l.insert_new_node('B') 
+l.insert_new_node('C') 
+print(l) 
