@@ -37,4 +37,7 @@ def convert_binary(num: int):
 
 num = 5 
 
-print(convert_binary(num=num))
+# print(convert_binary(num=num))
+
+
+print(num.bit_length())
