@@ -1,44 +1,46 @@
+
+
+""" 
+ -> Node contain two things 1. data 2. link that connect with another node  
+
+"""
+
 class Node:
     def __init__(self, data):
-        self.data = data 
+        self.data = data
         self.next = None 
 
 
-class LinkList:
+class LinkedList:
     def __init__(self):
-        self.head = None 
-    
+        self.head = None  
 
-    def insert_new_node(self, data):
-        new_node = Node(data) 
+
+    def insert_at_begin(self, data):
+        new_node = Node(data=data)
 
         if not self.head:
             self.head = new_node 
             return 
-        
-        # go last node 
-        last_node = self.head 
-        while last_node.next:
-            last_node = last_node.next 
-        last_node.next = new_node 
+        else:
+            new_node.next = self.head 
+            self.head = new_node 
 
-        return self.head 
     
-    def __str__(self):
-        res = [] 
+    def insert_at_index(self, data, index):
+
+        if index == 0:
+            self.insert_at_begin(data=data) 
+            return 
         
-        current = self.head 
+        position = 0 
+        current_node = self.head 
+        while not current_node and position + 1 != index:
+            position += 1 
+            current_node = current_node.next 
 
-        while current:
-            res.append(current.data) 
-            current = current.next 
-        
-        return str(res) 
+            if not current_node:
+                new_node = Node(data=data) 
+                new_node.next = current_node.next 
+                current_node.next = new_node 
 
-
-
-l = LinkList() 
-l.insert_new_node('A') 
-l.insert_new_node('B') 
-l.insert_new_node('C') 
-print(l) 
